@@ -10,59 +10,71 @@ ___
 [Roadmap](#Roadmap)    
 [Data](#Data) 
 - [Randomness & Independence](#Randomness-&-Independence)
+- [Complete List of Attributes](#Complete-List-of-Attributes)
 - [Color Coding & Abbreviations](#Color-Coding-&-Abbreviations)
-- [Auxilary Data](#Auxilary-Data)
+- [Auxilary Data](#Auxilary-Data)  
+
 [Cleaning](#Cleaning)    
 - [Datetime Conversions](#Datetime-Conversions)
 - [Null Values](#Null-Values)
-- [Errors](#Errors)
+- [Errors](#Errors)  
+
 [Data Loss](#Data-Loss)    
+
 [EDA: Targets](#EDA:-Targets)
-- [Descriptive Statistics](#Descriptive-Statistics)
-  - [Central Tendencies](#Central-Tendencies)
+- [Target variables descriptive statisitics](#Target-variables-descriptive-statistics)
+  - [Monthly averages for target variables](#Monthly-averages-for-target-variables)
     - [Trend in DTC](#Trend-in-DTC)
-    - [Seasonality in DTP](#Seasonality-in-DTP)
-    - [Difference in DTP Covid Data](#Difference-in-DTP-CovidData)
+    - [Difference in DTP Covid-19 Data](#Difference-in-DTP-Covid-19 Data)
       - [Subset Descriptive Statistics](#Subset-Descriptive-Statistics)
-      - [Subset Central Tendency](#Subset-Central-Tendency)
-      - [Hypothesis Testing](#Hypothesis-Testing)
-      - [Covid Exclusion Decision](#Covid-Exclusion-Decision)
-      - [Supply & Demand Context](#Supply-&-Demand-Context)
-      - [Insight from Agent Remarks](#Insight-from-Agent-Remarks)
-        - [Tf-idf](#Tf-idf)
-- [Considering Spatial Dependence](#Considering-Spatial-Dependence)
+      - [Hypothesis testing for differences](#Hypothesis-testing-for-differences)
+      - [Supply & Demand Context for Covid Data](#Supply-&-Demand-Context-for-Covid-Data)
+      - [Insight from Broker Remarks](#Insight-from-Broker-Remarks)  
+    - [Seasonality in DTP](#Seasonality-in-DTP)
+
 [EDA: Features](#EDA:-Features)
-- [Target Correlation with Price](#Target-Correlation-with-Price)
-- [Ratio Feature Strongly Associated with DTP](#Ratio-Feature-Strongly-Associated-with-DTP)
-- [Engineered Seasonal Feature](#Engineered-Seasonal-Feature)
-- [Cash Buyer Strongly Associated with DTC](#Cash-Buyer-Strongly-Associated-with-DTC)
-[Models](#Models)
-- [DTC: Days to Closing Model](#DTC:-Days-to-Closing-Model)  
-- [DTP: Quick, Slow, & Classification Models](#DTP:-Quick,-Slow,-&-Classification-Models)    
-  - [MLE](#MLE)
-  - [DTP: Quick Class Regression](#DTP:-Quick-Class-Regression)
-  - [DTP: Slow Class Regression](#DTP:-Slow-Class-Regression)
-  - [DTP: Classification](#DTP:-Classification)
-- [Mixture Model](#Mixture-Model)  
-  - [Mixture Holdout Results](#Mixture-Holdout-Results)
-  - [DTP+DTC Holdout Results](#DTP+DTC-Holdout-Results)
-- [DOM: Days on Market Model](#DOM:-Days-on-Market-Model)
-  - [DOM Holdout Results](#DOM-Holdout-Results)
-- [DTP: Days to Purchase Contract Model](#DTP:-Days-to-Purchase-Contract-Model) 
-  - [DTP Holdout Results](#DTP-Holdout-Results)
-  - [DTP+29 Holdout Results](#DTP+29-Holdout-Results)   
+- [Feature Engineering](#Feature-Engineering)
+  - [Seasonality Feature in DTP](#Seasonality-Feature-in-DTP)
+  - [Cash Buyer Strongly Associated with DTC](#Cash-Buyer-Strongly-Associated-with-DTC)
+  - [Ratio Feature Strongly Associated with DTP](#Ratio-Feature-Strongly-Associated-with-DTP)
+- [Feature Analysis](#Feature-Analysis)
+  - [Target Correlation with Price](#Target-Correlation-with-Price)
+  - [Price Correlation with Ratio](#Price-Correlation-with-Ratio)
+
+[Model Information](#Model-Information)
+- [Generalized Linear Models](#Generalized-Linear-Models)
+- [Non-parametric Model: Gradient Boost](#Non---parametric-Model:-Gradient-Boost)
+- [Roadmap Reminder](#Roadmap-Reminder)  
+
+[DTC Model](#DTC:-Days-to-Closing-Model)    
+
+[DTP: Quick, Slow, & Classification Models](#DTP:-Quick,-Slow,-&-Classification-Models)    
+  - [Maximum Likelihood Estimation](#Maximum-Likelihood-Estimation)
+  - [QUICK MODEL](#QUICK-MODEL)
+  - [SLOW MODEL](#SLOW-MODEL)
+  - [CLASSIFICATION](#CLASSIFICATION)
+- [Additive Model & Holdout Results](#Additive-Model-&-Holdout-Results)  
+    
+[DOM Holdout Results](#DOM-Holdout-Results)  
+
+[DTP Validation Results](#DTP-Validation-Results)     
+
+[DTP + 29 Holdout Results](#DTP + 29-Holdout-Results)   
+
+[Residual Comparison](#Residual-Comparison)
   
 [Conclusions](#Conclusions)  
-  - [DTC Conclusion](#DTC-Conclusion)  
-  - [DTP Conclusion](#DTP-Conclusion)
+  - [DTC](#DTC)  
+  - [DTP](#DTP)
   - [Most Interesting Insight](#Most-Interesting-Insight)  
   
-[Commenting Link to Paper](#Commenting-Link-to-Paper)  
 [Future Work](#Future-Work)   
 
 [Gratitude](#Gratitude) 
 
-[Citations](#Citations)  
+[Citations + References](#Citations-+-References)  
+
+[Tech Stack](#Tech-Stack)
 
 [Appendix](#Appendix)  
 
@@ -134,7 +146,7 @@ There is not an obvious spatial dependency indicated in this graphic.
 
 We proceed with the assumption of independent observations, and add spatially dependent modeling techniques to future work.  
 
-### Complete List of Attributes. 
+### Complete List of Attributes 
 
 The following lists encompass all the attributes that were considered in extracting meaning from this data.
 
@@ -295,7 +307,7 @@ In a practical sense, these maximums could be reduced; the model would have less
 ___
 
 
-## Exploratory Data Analysis    
+## EDA: Targets    
 
 ### Target variables descriptive statistics  
 
@@ -343,9 +355,8 @@ We need to consider the ramifications of including and excluding the Covid data 
 We will decide whether to include the covid data by analyzing the descriptive and inferential statistics in yearly subsets of the data representing like time periods.
 
 
-**Descriptive Statitics**  
-The [complete table](#Hypothesis-tests-decriptive-statistics) can be found in the appendix  
-
+**Subset Descriptive Statitics**  
+ 
 The Covid data has the lowest mean, median and mode for DTP, and the highest number of transactions. In contrast, It is interesting to note that the 2019 March through December means and medians are the highest. In considering excluding the Covid data, we must also be mindful of whether the evidence gathered would require excluding other periods, in particular 2019.
 The DTP data is skewed right, so the median may be a better metric for measuring difference. A look at descriptive statistics for different time periods in the data leads us toward different ways to consider this problem. 
 
@@ -476,7 +487,7 @@ There is obvious seasonality in the DTP variable. We move into feature engineeri
 
 #### Feature Engineering
 
-##### Seasonality in DTP  
+##### Seasonality Feature in DTP  
 
 We create a feature to capture the seasonality in the data. This feature is a piecewise quadratic equation. The broken stick method allows us to connect two different functions at a domain value called a knot. We need to determine the best knot value and the best intercept and coefficients for the feature equation. The potential domain values x are the numeric representation of the months, number 1 through 12. For every x value we perform a linear regression on DTP, using the training data, and record the r-squared value. The best knot value is 7.44. The best r-squared value is 0.84. The best intercept and coefficients are shown below in the broken stick equation: 
 
@@ -620,7 +631,7 @@ Employing a strategy of splitting the data at mode + 1 creates a quick class wit
 
 We are fitting parametric models to data based on probability distributions. Knowing the best parameters for those distributions allows us to determine the best model. The maximum likelihood estimate for lambda in the quick class is right in line with the statistics in the table, confirming that this data should be fit using a Poisson model. The maximum likelihood estimate for the slow class parameter p indicates that the theoretic variance, 1778, is greater than the actual variance of 1141. We note this and proceed with the Negative Binomial model. Again, we will employ gradient boost as a non-parametric comparison model.  
 
-Maximum LIkelihood Estimation  
+##### Maximum Likelihood Estimation  
 
 - The MLE for λ given the Poisson Quick Class data is 4.1242. 
 - The MLE for p given the Geometric Slow Class data is 0.0233, giving a mean of 42.85.
