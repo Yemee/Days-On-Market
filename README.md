@@ -9,7 +9,7 @@ ___
 [Introduction](#Introduction)    
 [Roadmap](#Roadmap)    
 [Data](#Data) 
-- [Randomness & Independence](#Randomness-&-Independence)
+- [Randomness and Independence](#Randomness-and-Independence)
 - [Complete List of Attributes](#Complete-List-of-Attributes)
 - [Color Coding & Abbreviations](#Color-Coding-&-Abbreviations)
 - [Auxilary Data](#Auxilary-Data)  
@@ -28,7 +28,7 @@ ___
     - [Difference in DTP Covid19 Data](#Difference-in-DTP-Covid19-Data)
       - [Subset Descriptive Statistics](#Subset-Descriptive-Statistics)
       - [Hypothesis testing for differences](#Hypothesis-testing-for-differences)
-      - [Supply & Demand Context for Covid Data](#Supply-&-Demand-Context-for-Covid-Data)
+      - [Supply and Demand Context for Covid Data](#Supply-and-Demand-Context-for-Covid-Data)
       - [Insight from Broker Remarks](#Insight-from-Broker-Remarks)  
     - [Seasonality in DTP](#Seasonality-in-DTP)
 
@@ -133,7 +133,7 @@ Homes required to participate in a homeowner’s association were excluded from 
 From 401 available features, 81 are sufficiently populated, defined as at least 90% non-null values,  41 were useful in identifying errors, exploratory data analysis, or feature engineering. Zero raw attributes had any practical effect in the model. Three engineered features were both statistically significant and practically meaningful. 
  
  
-### Randomness & Independence
+### Randomness and Independence
 
 - This data was queried from REColorado, which makes the data a subpopulation rather than a random sample.  
 
@@ -329,7 +329,7 @@ Looking at the monthly average for the targets, *days to purchase contract*(gree
 3) The DTP target appears to include seasonality.
 
 
-#### 1) Trend in DTC  
+#### Trend in DTC  
 
 The competitive nature of the lending industry rewards lenders for quick closing times. A one month estimate to close a loan is very reasonable. The sinusoidal shape in the data doesn’t immediately make sense. 
 
@@ -343,7 +343,7 @@ We could fit this trend with a sine curve and use that as a feature in modeling 
 
 ![trid](images/trid.png)
 
-#### 2) Difference in DTP Covid19 Data  
+#### Difference in DTP Covid19 Data  
 
 ![covid wow](images/dtp_season_ts_wow.png)
 
@@ -358,7 +358,7 @@ We need to consider the ramifications of including and excluding the Covid data 
 We will decide whether to include the covid data by analyzing the descriptive and inferential statistics in yearly subsets of the data representing like time periods.
 
 
-**Subset Descriptive Statitics**  
+#### Subset Descriptive Statitics
  
 The Covid data has the lowest mean, median and mode for DTP, and the highest number of transactions. In contrast, It is interesting to note that the 2019 March through December means and medians are the highest. In considering excluding the Covid data, we must also be mindful of whether the evidence gathered would require excluding other periods, in particular 2019.
 The DTP data is skewed right, so the median may be a better metric for measuring difference. A look at descriptive statistics for different time periods in the data leads us toward different ways to consider this problem. 
@@ -387,7 +387,7 @@ The modes and sample size point at Covid data representing a new population.
 
 <br>
 
-**Hypothesis testing for differences**   
+#### Hypothesis testing for differences   
 
 It would be great if we could just perform a difference of means or medians test to decide whether to include the Covid data in our model. As discussed earlier in the DATA section, this queried dataset is better defined as a subpopulation than a random sample, so we are violating the randomness assumption for hypothesis testing. If this data is a population, then excluding Covid data based on mean, would also indicate that we must exclude the 2019 data. The average number of closed single family residences in Denver per month, as reported by InfoSparks, is 14,229. If we abuse the hypothesis test, we can explore whether the Mann-Whitney Test is helpful in comparing our medians from our discrete data. The following pairwise, two-sided, two-sample rank tests are performed on 1000 datapoint random samples sampled with replacement from the data subsets.
 
@@ -431,7 +431,7 @@ The skewed right data makes the median an important metric to consider. The Covi
 The number of transactions that took place during the Covid time period is more than 10% greater than any other period.
 In making the decision to exclude the Covid data, we add modeling the Covid data to our future work because this may be the new normal in Denver.  
 
-#### Supply & Demand Context for Covid Data
+#### Supply and Demand Context for Covid Data
 
 We try to find a supply and demand context for further exploration. Though the number of active listings has decreased during Covid, the 2300 active listings in December of 2020, the lowest during the Covide period in this data, is still higher than Jan 2015 - Jan 2019 values. So supply seems strong. Demand dipped slightly in March 2020, but has now reached a new (at least) 6 year high. We also saw that the number of purchase contracts is at all time high in the data. Remote work is allowing an influx of workers from higher-median income areas to enter the market., This suggests that it is a great time to be selling a home, but only if that didn't mean buying a new one in this extreme seller’s market.  
 
@@ -479,7 +479,7 @@ A term frequency - inverse document frequency (tf-idf) vectorization of the corp
 The word clouds were  made while limiting the minimum and maximum documents in which a word could occur to 500 and 99% respectively. The maximum number of words is restricted to 100. There are many hyperparameters to tune and I think this insight can be improved with more work. Please see sklearn’s 
 list of hyperparameters that you can play with [here](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html).
 
-#### 3) Seasonality in DTP
+#### Seasonality in DTP
 
 There is obvious seasonality in the DTP variable. We move into feature engineering to include this pattern in our models.
 
@@ -502,13 +502,13 @@ We create a feature to capture the seasonality in the data. This feature is a pi
 
 ![broken stick fit](images/brokenstick_fit.png)
 
-##### Cash Buyer strongly related to DTC
+##### Cash Buyer Strongly Associated with DTC
 
 Cash Buyers make up 18.2% of this data. Unsurprisingly, a cash buyer is inversely related with the number of days required to close a purchase contract, DTC. The data has a bell shape and the mean and medians for both cash and non-cash buyer subsets are less than two days apart. The mean and median are respectively 12 and 13 days lower in the cash buyer subset.
 
 ![cash buyer](images/cash_buyer.png)
 
-##### Ratio strongly related to DTP  
+##### Ratio Strongly Associated with DTP
 
 A feature comparing the original listing price to the closing price gives insight into how pricing affects the time on market. While the market price is determined by the closing price, which we cannot know in advance, agents regularly make data based pricing estimations which can be purposefully under or over priced.
 
