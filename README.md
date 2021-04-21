@@ -48,7 +48,7 @@ ___
 
 [DTC Model](#DTC-Model)    
 
-[DTP Quick, Slow, and Classification Models](#DTP-Quick,-Slow,-and-Classification-Models)    
+[DTP Quick Slow and Classification Models](#DTP-Quick-Slow-and-Classification-Models)    
   - [Maximum Likelihood Estimation](#Maximum-Likelihood-Estimation)
   - [QUICK MODEL](#QUICK-MODEL)
   - [SLOW MODEL](#SLOW-MODEL)
@@ -617,7 +617,7 @@ The pros and cons of being or selling to a cash buyer is on the future work list
 ___  
 
 
-## DTP Quick, Slow and Classification Models
+## DTP Quick Slow and Classification Models
 
 The distribution of the DTP target is skewed right with a mode of 4. If we look at the data roughly symmetric about the mode [0,9] it looks like this may have different behavior that the DTP values greater than 9. 
 
