@@ -72,7 +72,10 @@ ___
 
 [Gratitude](#Gratitude) 
 
-[Citations + References](#Citations-+-References)  
+[Sources + References](#Sources-+-References)  
+- [Text Sources](#Text-Sources)
+- [Online Sources](#Online-Sources)
+- [Mentor Sources](#Mentor-Sources)
 
 [Tech Stack](#Tech-Stack)
 
@@ -864,8 +867,6 @@ ___
   - identifying predatory practices
   - finding cash buyer attributes strongly associated with beneficial transactions
 
-
-
 ___ 
 
 
@@ -920,8 +921,7 @@ Because everysinglething
 
 ___  
 
-
-## Citations + References  
+## Sources + References  
 
 ### Text Sources
 
@@ -934,17 +934,6 @@ ___
 [4] Wackerley, Dennis. Mendenhall, William. Scheaffer, Richard. **Mathematical Statistics with Applications**, Brooks/Cole Cengage Learning 2008.  
 
 [5] Casella, George. Berger, Roger. **Statistical Inference**, Duxbury, Wadsworth Group, Thomas Learnging Inc., 2002.
-
-
-### Academic Sources 
-
-Dr. Joshua French 
-
-Galvanize Lectures and Repositories
-- Kayla Thomas
-- Chris Reger
-- Heather Berginc
-
 
 ### Online Sources
 
@@ -965,7 +954,17 @@ Galvanize Lectures and Repositories
 
 [F] [Tf-idf images](https://www.cbrinton.net/ECE20875-2020-Spring/W10/ngrams.pdf)
 
-[G] [Folium](https://python-visualization.github.io/folium/quickstart.html)
+[G] [Folium](https://pypi.org/project/folium/)
+
+
+### Mentor Sources 
+
+Dr. Joshua French 
+
+Galvanize Lectures and Repositories
+- Kayla Thomas
+- Chris Reger
+- Heather Berginc
 
 ___ 
 
