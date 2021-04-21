@@ -686,8 +686,6 @@ We note that alpha overdispersion parameter assigned the value 1.01 (chosen to b
 The regression toward the mean  is evident in the extreme predictor inputs resulting in  predictions closer to the mean than the minimum and maximum values.
 ___
 
-
-
 The gradient boost model gives the best mean absolute and root mean squared error results. The non-parametric results are consistent with the parametric model.
 
 ![slow feature imp](images/slow_feat_imp.png)
@@ -845,36 +843,78 @@ ___
 
 ## Future Work     
 
-I would like to explore profit as a function of pricing strategies.
-The most promising idea I currently have for better predictions for the days on market metric is a k-nearest neighbors strategy for grabbing the k nearest neighbors limited by recent closings to use the average as the days on market prediction.
+### Next techniques for this project:
+- Modeling DOM for Covid19 data
+  - does the seasonality importance disappear
+  - has the proportion of under/over priced homes changed
+- The most promising idea I currently have for better predictions for the days on market metric is a k-nearest neighbors strategy for grabbing the k nearest neighbors, limited by recent closings and enhanced by current pricing strategy, to use the average as the days on market prediction. 
+- Slicing into the data by price points to determine ratio changes.
+- Image processing on pictures submitted with the listing. The kitchen photos may be especially good at identifying fixer-uppers vs remodels, and providing a wow-factor feature.
+- Sentiment analysis on broker remarks may be a way to classify how quickly the broker thinks the home will sell.
+- An application allowing agents, sellers and buyers to input and address and receive:
+  - an estimate of the days required to sell that home based on the k closest sales in the last x days
+  - The dominant pricing strategy in the area for recent sales
+  - The trend in these metrics 
+
+### New related projects: 
+- Explore profit as a function of pricing strategies. Finding an actionable way to address whether the market truly corrects for under or over pricing is an important, interesting and difficult question.
+- Explore the benefits of listing in different seasons or months, the trade off between supply and demand.
+- Determine the pros and cons of accepting a cash offer with an emphasis on: 
+  - profit loss in exchange for an alleged shorter and simpler closing process
+  - identifying predatory practices
+  - finding cash buyer attributes strongly associated with beneficial transactions
+
 
 
 ___ 
 
 
-## Gratitude
+## Gratitude (I love these people!)
 
 **Dr. Joshua French**  
-Linear regression course, letting me grade, going way beyond for my MS  
-**Dr. Stephanie Santorico & Dr. Audrey Hendricks**  
-Sitting on committee,   
+That Linear Regression course! Letting me grade. Not giving up on me when I had.  
+
+**Dr. Stephanie Santorico**
+Making it okay to have a favorite distribution.  
+
+**Dr. Audrey Hendricks**  
+Making me do my project instead of retaking the class. Letting me teach.    
+
 **Dr. Loren Cobb**   
-Tuna on toast advice   
-**Mike Kawaii**  
-**Gary Olson**   
-**Dr. Mike Ferrara, Dr. Mike Jacobson, Dr. Florian Pfender**  
+Tuna on toast advice. Helping before I asked.  
+
+**Lance Lana** 
+'If you think this is fun, you should think about being a mathematician'  
+
+**Mike Kawaii** 
+Hours and hours and hours playing on the white board  
+
+**Gary Olson** 
+Modeling amazing teaching, development, kindness and support  
+
+**Dr. Mike Jacobson**
+Showing me that EVERYTHING is graph theory, making me want to go to graduate school.  
+
+**Dr. Mike Ferrara & Dr. Florian Pfender** 
+Making me laugh when I was crying, being candid and supportive and awesome.  
+
 **Dr. Paul Wenger**  
-First discreet modeling course  
+First discrete modeling course, being too much fun and wearing that hat!   
+
 **DSI**  
-Kayla, Chris, Martha, Jenny, Alex  
+Kayla, Chris, Martha, Jenny, Alex    
+
 **DSR**  
-Heather, Ryan, Kacie, Alex, Lu, Morgan, Tim  
+Heather, Ryan, Kacie, Alex, Lu, Morgan, Tim    
+
 **My Mom**   
-Staying alive :)    
+Staying alive :)      
+
 **Eddie & Brandy**   
-For stepping in and up without being asked. For making the intollerable hilarious.  
+For stepping in and up without being asked. For making the intollerable hilarious.   
 **Thatcher & Nevi**  
-My wild and unruly dream children for letting me ignore you xoxo    
+My wild and unruly dream children for letting me ignore you xoxo      
+
 **Eric**    
 Because everysinglething      
 
@@ -885,15 +925,15 @@ ___
 
 ### Text Sources
 
-Bruce, Peter. Bruce, Andrew. Gedeck, Peter. Practical Statistics for Data Scientists, O'Reilly Media Inc., 2020.  
+[1] Bruce, Peter. Bruce, Andrew. Gedeck, Peter. **Practical Statistics for Data Scientists**, O'Reilly Media Inc., 2020.  
 
-#2 Faraway, Julian. "Transformations." Linear Models with R, CRC Press, 2015, pp.137-139.
+[2] Faraway, Julian. "Transformations." **Linear Models with R**, CRC Press, 2015, pp.137-139.
 
-Hastie, Trevor. Tibshirani, Robert. Friedman, Jerome. The Elements fo Statististal Learning. 
+[3] Hastie, Trevor. Tibshirani, Robert. Friedman, Jerome. **The Elements of Statististal Learning**. 
 
-Wackerley, Dennis. Mendenhall, William. Scheaffer, Richard. Mathematical Statistics with Applications, Brooks/Cole Cengage Learning 2008.  
+[4] Wackerley, Dennis. Mendenhall, William. Scheaffer, Richard. **Mathematical Statistics with Applications**, Brooks/Cole Cengage Learning 2008.  
 
-Casella, George. Berger, Roger. Statistical Inference, Duxbury, Wadsworth Group, Thomas Learnging Inc., 2002.
+[5] Casella, George. Berger, Roger. **Statistical Inference**, Duxbury, Wadsworth Group, Thomas Learnging Inc., 2002.
 
 
 ### Academic Sources 
@@ -901,17 +941,31 @@ Casella, George. Berger, Roger. Statistical Inference, Duxbury, Wadsworth Group,
 Dr. Joshua French 
 
 Galvanize Lectures and Repositories
-Kayla Thomas
-Chris Reger
+- Kayla Thomas
+- Chris Reger
+- Heather Berginc
 
 
 ### Online Sources
 
-You Tube Videos: Statquest, Khan Academy
+[A] [sklearn](https://scikit-learn.org/stable/)
+- [a][gradient boost regressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html)
+- [b] [gradientb boost classifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html?highlight=gradient%20boost%20classifier#sklearn.ensemble.GradientBoostingClassifier)
+- [c] [logistic regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html?highlight=logistic%20regression#sklearn.linear_model.LogisticRegression)
+- [d] [NLP count vectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html)
 
-Stackoverflow
+[B] [statsmodels.api](https://www.statsmodels.org/stable/api.html)
+    [GLM logistic regression, Poisson and negative binomial regression](https://www.statsmodels.org/stable/glm.html#glm--page-root)
 
-Additionally, please see Tech Stack below.
+[C] [Stackoverflow](https://stackoverflow.com/)
+
+[D] [Statquest](https://www.youtube.com/channel/UCtYLUTtgS3k1Fg4y5tAhLbw)
+
+[E] [Khan Academy](https://www.khanacademy.org/)
+
+[F] [Tf-idf images](https://www.cbrinton.net/ECE20875-2020-Spring/W10/ngrams.pdf)
+
+[G] [Folium](https://python-visualization.github.io/folium/quickstart.html)
 
 ___ 
 
