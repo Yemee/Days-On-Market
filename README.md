@@ -944,18 +944,26 @@ ___
 - [d] [NLP count vectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html)
 
 [B] [statsmodels.api](https://www.statsmodels.org/stable/api.html)
-    [GLM logistic regression, Poisson and negative binomial regression](https://www.statsmodels.org/stable/glm.html#glm--page-root)
+- [a] [GLM logistic regression, Poisson and negative binomial regression](https://www.statsmodels.org/stable/glm.html#glm--page-root)
+- [b] [OLS](https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.html)
 
-[C] [Stackoverflow](https://stackoverflow.com/)
+[C] [Scipy.stats](https://docs.scipy.org/doc/scipy/reference/index.html)
+- [a] [Winsorize](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mstats.winsorize.html)
+- [b] [statistical functions](https://docs.scipy.org/doc/scipy/reference/stats.html)
+- [c] [mann whitney u test](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html)
+- [d] [levene test](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html)
 
-[D] [Statquest](https://www.youtube.com/channel/UCtYLUTtgS3k1Fg4y5tAhLbw)
+[D] [Stackoverflow](https://stackoverflow.com/)
 
-[E] [Khan Academy](https://www.khanacademy.org/)
+[E] [Statquest](https://www.youtube.com/channel/UCtYLUTtgS3k1Fg4y5tAhLbw)
 
-[F] [Tf-idf images](https://www.cbrinton.net/ECE20875-2020-Spring/W10/ngrams.pdf)
+[F] [Khan Academy](https://www.khanacademy.org/)
 
 [G] [Folium](https://pypi.org/project/folium/)
 
+[H] [Wordcloud](https://pypi.org/project/wordcloud/)
+
+[I] [Tf-idf images](https://www.cbrinton.net/ECE20875-2020-Spring/W10/ngrams.pdf)
 
 ### Mentor Sources 
 
