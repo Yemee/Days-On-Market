@@ -1,4 +1,4 @@
-# Days on Market ML Model
+# Days on Market
 ___
 
 
@@ -21,18 +21,18 @@ ___
 
 [Data Loss](#Data-Loss)    
 
-[EDA: Targets](#EDA:-Targets)
+[EDA Targets](#EDA-Targets)
 - [Target variables descriptive statisitics](#Target-variables-descriptive-statistics)
   - [Monthly averages for target variables](#Monthly-averages-for-target-variables)
     - [Trend in DTC](#Trend-in-DTC)
-    - [Difference in DTP Covid-19 Data](#Difference-in-DTP-Covid-19 Data)
+    - [Difference in DTP Covid19 Data](#Difference-in-DTP-Covid19-Data)
       - [Subset Descriptive Statistics](#Subset-Descriptive-Statistics)
       - [Hypothesis testing for differences](#Hypothesis-testing-for-differences)
       - [Supply & Demand Context for Covid Data](#Supply-&-Demand-Context-for-Covid-Data)
       - [Insight from Broker Remarks](#Insight-from-Broker-Remarks)  
     - [Seasonality in DTP](#Seasonality-in-DTP)
 
-[EDA: Features](#EDA:-Features)
+[EDA Features](#EDA-Features)
 - [Feature Engineering](#Feature-Engineering)
   - [Seasonality Feature in DTP](#Seasonality-Feature-in-DTP)
   - [Cash Buyer Strongly Associated with DTC](#Cash-Buyer-Strongly-Associated-with-DTC)
@@ -43,12 +43,12 @@ ___
 
 [Model Information](#Model-Information)
 - [Generalized Linear Models](#Generalized-Linear-Models)
-- [Non-parametric Model: Gradient Boost](#Non---parametric-Model:-Gradient-Boost)
+- [Non parametric Model Gradient Boost](#Non-parametric-Model-Gradient-Boost)
 - [Roadmap Reminder](#Roadmap-Reminder)  
 
-[DTC Model](#DTC:-Days-to-Closing-Model)    
+[DTC Model](#DTC-Model)    
 
-[DTP: Quick, Slow, & Classification Models](#DTP:-Quick,-Slow,-&-Classification-Models)    
+[DTP Quick, Slow, & Classification Models](#DTP-Quick,-Slow,-&-Classification-Models)    
   - [Maximum Likelihood Estimation](#Maximum-Likelihood-Estimation)
   - [QUICK MODEL](#QUICK-MODEL)
   - [SLOW MODEL](#SLOW-MODEL)
@@ -59,7 +59,7 @@ ___
 
 [DTP Validation Results](#DTP-Validation-Results)     
 
-[DTP + 29 Holdout Results](#DTP + 29-Holdout-Results)   
+[DTP+29 Holdout Results](#DTP+29-Holdout-Results)   
 
 [Residual Comparison](#Residual-Comparison)
   
@@ -307,7 +307,7 @@ In a practical sense, these maximums could be reduced; the model would have less
 ___
 
 
-## EDA: Targets    
+## EDA Targets    
 
 ### Target variables descriptive statistics  
 
@@ -340,7 +340,7 @@ We could fit this trend with a sine curve and use that as a feature in modeling 
 
 ![trid](images/trid.png)
 
-#### 2) Difference in DTP Covid-19 Data  
+#### 2) Difference in DTP Covid19 Data  
 
 ![covid wow](images/dtp_season_ts_wow.png)
 
@@ -483,7 +483,7 @@ There is obvious seasonality in the DTP variable. We move into feature engineeri
 
 ![dtp ts no covid](images/dtp_no_covid_fit.png)  
 
-### EDA: Features
+### EDA Features
 
 #### Feature Engineering
 
@@ -493,7 +493,7 @@ We create a feature to capture the seasonality in the data. This feature is a pi
 
 ![broken_stick equation](images/broken_stick_eq.png)  
 
-![seasonality by month table](images/sesaonlity_by_month_table.png)
+![seasonality by month table](images/seasonality_by_month_table.png)
 
 ![broken stick sesonality by month](images/seasonality_by_month.png)
 
@@ -556,7 +556,7 @@ For logistic regression (which is really binary classification) we will use the 
 
 The link function for logistic regression is the log odds. The Poisson link function is just a log transform. The Negative Binomial adds 𝛼, a Poisson overdispersion parameter.
 
-### Non-parametric Model: Gradient Boost
+### Non parametric Model Gradient Boost
 
 Gradient Boost is an additive ensemble method built from weak learner trees whose prediction’s weighted sum form a prediction based on continually minimizing residuals.
 
@@ -794,7 +794,7 @@ Before we get into that strategy, let’s see if we can find some insight into w
 ![GLM season and pricing](images/glm_pred_month_pricing_noncash.png)
 ![GB season and pricing](images/gb_pred_month_pricing_noncash.png)
 
-### DTP + 29 Holdout Results  
+### DTP+29 Holdout Results  
 
 The graphs are for non-cash buyers with predictions for each month varying across a value (0.95, 1, 1.05) for the ratio or listing price to sales price. The gradient boost model looks like it has the potential to use the ratio feature and seasonality to better predict sales that are on the market longer, which may be improving the mean absolute error.
 What if we figured out a best constant value for the DTC prediction and added that to the DTP prediction? The training data tells us the MAE and RMSE are minimized for DTC = 29, given the gradient boost model of DTP: MAE = 17.39, RMSE = 26.11. It does take roughly a month to close a loan, so this 29 day result makes sense.
