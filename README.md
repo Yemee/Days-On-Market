@@ -11,7 +11,7 @@ ___
 [Data](#Data) 
 - [Randomness and Independence](#Randomness-and-Independence)
 - [Complete List of Attributes](#Complete-List-of-Attributes)
-- [Color Coding & Abbreviations](#Color-Coding-&-Abbreviations)
+- [Color Coding and Abbreviations](#Color-Coding-and-Abbreviations)
 - [Auxilary Data](#Auxilary-Data)  
 
 [Cleaning](#Cleaning)    
@@ -36,7 +36,7 @@ ___
 - [Feature Engineering](#Feature-Engineering)
   - [Seasonality Feature in DTP](#Seasonality-Feature-in-DTP)
   - [Cash Buyer Strongly Associated with DTC](#Cash-Buyer-Strongly-Associated-with-DTC)
-  - [Ratio Feature Strongly Associated with DTP](#Ratio-Feature-Strongly-Associated-with-DTP)
+  - [Ratio Strongly Associated with DTP](#Ratio-Feature-Strongly-Associated-with-DTP)
 - [Feature Analysis](#Feature-Analysis)
   - [Target Correlation with Price](#Target-Correlation-with-Price)
   - [Price Correlation with Ratio](#Price-Correlation-with-Ratio)
@@ -48,18 +48,18 @@ ___
 
 [DTC Model](#DTC-Model)    
 
-[DTP Quick, Slow, & Classification Models](#DTP-Quick,-Slow,-&-Classification-Models)    
+[DTP Quick, Slow, and Classification Models](#DTP-Quick,-Slow,-and-Classification-Models)    
   - [Maximum Likelihood Estimation](#Maximum-Likelihood-Estimation)
   - [QUICK MODEL](#QUICK-MODEL)
   - [SLOW MODEL](#SLOW-MODEL)
   - [CLASSIFICATION](#CLASSIFICATION)
-- [Additive Model & Holdout Results](#Additive-Model-&-Holdout-Results)  
+- [Additive Model and Holdout Results](#Additive-Model-and-Holdout-Results)  
     
 [DOM Holdout Results](#DOM-Holdout-Results)  
 
 [DTP Validation Results](#DTP-Validation-Results)     
 
-[DTP+29 Holdout Results](#DTP+29-Holdout-Results)   
+[DTP plus 29 Holdout Results](#DTP-plus-29-Holdout-Results)   
 
 [Residual Comparison](#Residual-Comparison)
   
@@ -72,7 +72,7 @@ ___
 
 [Gratitude](#Gratitude) 
 
-[Sources + References](#Sources-+-References)  
+[Sources and References](#Sources-and-References)  
 - [Text Sources](#Text-Sources)
 - [Online Sources](#Online-Sources)
 - [Mentor Sources](#Mentor-Sources)
@@ -193,7 +193,7 @@ school = ['Elementary School', 'Middle Or Junior School',
           'High School']
 ```
   
-### Color Coding & Abbreviations
+### Color Coding and Abbreviations
 
 **color coding**  
 
@@ -358,7 +358,7 @@ We need to consider the ramifications of including and excluding the Covid data 
 We will decide whether to include the covid data by analyzing the descriptive and inferential statistics in yearly subsets of the data representing like time periods.
 
 
-#### Subset Descriptive Statitics
+#### Subset Descriptive Statistics
  
 The Covid data has the lowest mean, median and mode for DTP, and the highest number of transactions. In contrast, It is interesting to note that the 2019 March through December means and medians are the highest. In considering excluding the Covid data, we must also be mindful of whether the evidence gathered would require excluding other periods, in particular 2019.
 The DTP data is skewed right, so the median may be a better metric for measuring difference. A look at descriptive statistics for different time periods in the data leads us toward different ways to consider this problem. 
@@ -617,7 +617,7 @@ The pros and cons of being or selling to a cash buyer is on the future work list
 ___  
 
 
-## DTP Quick, Slow & Classification Models
+## DTP Quick, Slow and Classification Models
 
 The distribution of the DTP target is skewed right with a mode of 4. If we look at the data roughly symmetric about the mode [0,9] it looks like this may have different behavior that the DTP values greater than 9. 
 
@@ -746,7 +746,7 @@ The gradient boost model also reports ratio as being the dominant predictor in s
 ___ 
  
 
-### Additive Model & Holdout Results  
+### Additive Model and Holdout Results  
 
 We now have all the pieces required to make the additive model. Before we look at the holdout test results, let’s feed our model one unseen data point and see the prediction.
 
@@ -795,7 +795,7 @@ Before we get into that strategy, let’s see if we can find some insight into w
 ![GLM season and pricing](images/glm_pred_month_pricing_noncash.png)
 ![GB season and pricing](images/gb_pred_month_pricing_noncash.png)
 
-### DTP+29 Holdout Results  
+### DTP plus 29 Holdout Results  
 
 The graphs are for non-cash buyers with predictions for each month varying across a value (0.95, 1, 1.05) for the ratio or listing price to sales price. The gradient boost model looks like it has the potential to use the ratio feature and seasonality to better predict sales that are on the market longer, which may be improving the mean absolute error.
 What if we figured out a best constant value for the DTC prediction and added that to the DTP prediction? The training data tells us the MAE and RMSE are minimized for DTC = 29, given the gradient boost model of DTP: MAE = 17.39, RMSE = 26.11. It does take roughly a month to close a loan, so this 29 day result makes sense.
@@ -870,7 +870,8 @@ ___
 ___ 
 
 
-## Gratitude (I love these people!)
+## Gratitude    
+**(I love these people!)**
 
 **Dr. Joshua French**  
 That Linear Regression course! Letting me grade. Not giving up on me when I had.  
@@ -921,7 +922,7 @@ Because everysinglething
 
 ___  
 
-## Sources + References  
+## Sources and References  
 
 ### Text Sources
 
