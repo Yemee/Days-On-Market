@@ -141,11 +141,11 @@ From 401 available features, 81 are sufficiently populated, defined as at least 
 
 The markers indicate the average DTP value per zip code. It looks like on average DTP may be less on the West side of Denver.
 
-![data map](images/spatial_dep_avg.png)  
+<img src="images/spatial_dep_avg.png" width="500" />
 
 There is not an obvious spatial dependency indicated in this graphic. 
 
-![all data map](images/spatial_dep_all.png)  
+<img src="images/spatial_dep_all.png" width="500" />
 
 We proceed with the assumption of independent observations, and add spatially dependent modeling techniques to future work.  
 
@@ -233,9 +233,9 @@ Relevant attributes did not suffer from extensive null values. Attributes with a
 
 - Missing earnest money values (470 data points, 2% of the data) were imputed using ordinary least squares regression on the original listing price. A log transform on both earnest money and listing price made the relationship more linear. In order to protect from data leakage (had this feature been useful in the model), this linear regression model was built on the training set, holdout set imputations were predictions from this training model on the holdout data.
 
-![em on price](images/em_on_price.png)  
-
-![ols log(em) on log(price)](images/ols_em_on_price.png)
+<img src="images/em_on_price.png" width="300" />
+ 
+<img src="images/ols_em_on_price.png" width="300" />
 
 ### Errors
 
@@ -286,12 +286,12 @@ The table below summarizes the amount of data removed from the original data set
 Targets: Days to Purchase Contract and Days to Closing
 Domain knowledge and a desire to maintain data points resulted in the following maximums on the target variables. The DTP values in this dataset represent the strong seller’s market in Denver; limiting this variable to 180 days is a conservative cap. The DTC capped at 77 is also conservative. 
 
-
-![dtp-loss](images/dtp_data_loss.png)
-
-![dtp-loss](images/dtc_data_loss.png)
-
-![dtp-loss](images/dom_data_loss.png) 
+<img src="images/dtp_data_loss.png" width="400" />
+ 
+<img src="images/dtc_data_loss.png" width="400" />
+ 
+<img src="images/dom_data_loss.png" width="400" />
+ 
 
 IQR: Interquartile range  
 
