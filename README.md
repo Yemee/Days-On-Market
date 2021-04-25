@@ -446,35 +446,41 @@ We collected public and private agent remarks and showing instructions. Natural 
 
 ##### Word cloud from PRE-COVID: March-December 2019 broker remarks
 
-![2019 cloud](images/wc_pre.png)
+  
+<img src="images/wc_pre.png" width="500" />
+ 
 
 ##### Word cloud from COVID: March-December 2020 broker remarks
 
-![covid cloud](images/wc_covid.png)
-
+<img src="images/wc_covid.png" width="500" />
+ 
 A term frequency - inverse document frequency (tf-idf) vectorization of the corpus of remarks collected in this data allows us to hone in on important words beyond excluding commonly used words called stopwords.   
-
+<img src="https://sci2lab.github.io/ml_tutorial/tfidf/" width="500" />
 [image source](https://sci2lab.github.io/ml_tutorial/tfidf/)   
 
 - The term frequency is just the number of times a word appears in a given document.   
-
-![tf](images/tf.png)
+  
+<img src="images/tf.png" width="500" />
+<!-- ![tf](images/tf.png) -->
 
 - The inverse document frequency is a measure of whether a word is common or rare in the entire corpus.
-
-![idf](images/idf.png)
+  
+<img src="images/idf.png" width="500" />
+<!-- ![idf](images/idf.png) -->
 
 - The matrix product of the term frequency and inverse document frequency matrices is a way to focus what words are extracted from NLP.
-
-![tfidf](images/tf-idf.png)
+<img src="images/tf-idf.png" width="500" />
+<!-- ![tfidf](images/tf-idf.png) -->
 
 ##### Tf-idf Word cloud from PRE-COVID: March-December 2019 broker remarks
 
-![2019 cloud](images/tfidf_pre.png)
+<img src="images/tfidf_pre.png" width="500" />
+<!-- ![2019 cloud](images/tfidf_pre.png) -->
 
 ##### Tf-idf Word cloud from COVID: March-December 2020 broker remarks
 
-![covid cloud](images/tfidf_covid.png)
+<img src="images/tfidf_covid.png" width="500" />
+<!-- ![covid cloud](images/tfidf_covid.png) -->
 
 The word clouds were  made while limiting the minimum and maximum documents in which a word could occur to 500 and 99% respectively. The maximum number of words is restricted to 100. There are many hyperparameters to tune and I think this insight can be improved with more work. Please see sklearn’s 
 list of hyperparameters that you can play with [here](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html).
@@ -550,26 +556,29 @@ Our data is Binomial, Poisson, Geometric and Negative Binomial
 NOT Gaussian, so we shouldn’t use a linear model.  
 
 GLMs allow us to specify a **family** and a **link** function in order to model non-normal errors and distributions, like count data and binary classifications!
-
-![glm family](images/GLM_family.png)
+  
+<img src="images/GLM_family.png" width="500" />
+ 
 
 For logistic regression (which is really binary classification) we will use the Binomial **family**. For the parametric regression models we will use the Poisson and Negative Binomial **families**.  
-
-![glm link](images/GLM_link.png)  
+  
+<img src="images/GLM_link.png" width="500" />
+ 
 
 The link function for logistic regression is the log odds. The Poisson link function is just a log transform. The Negative Binomial adds 𝛼, a Poisson overdispersion parameter.
 
 ### Non parametric Model Gradient Boost
 
 Gradient Boost is an additive ensemble method built from weak learner trees whose prediction’s weighted sum form a prediction based on continually minimizing residuals.
-
-![gb](images/gb.png)
+  
+<img src="images/gb.png" width="400" />
+ 
 
 The algorithm looks more complicated than it is, the basics steps are just:
 
 - First tree is the mean model
 
-- Make a new feature of the residuals
+- Make a new feature from the residuals
 
 - Next tree makes OLS predictions on the previous residuals
 
